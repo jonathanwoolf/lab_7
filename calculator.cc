@@ -27,14 +27,14 @@ int main() {
 	while(input != "exit") {
 
 		cout << "Choose a Menu Command: ";
-		getline(cin, input);		
+		getline(cin, input);
 
 		if(input == "exit") {
 			break;
 		}
 		else if(input == "redo") {
 			cout << "Redoing Command" << endl;
-			menu->redo();	
+			menu->redo();
 			cout << "Result: ";
 			menu->execute();
 		}

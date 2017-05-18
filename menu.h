@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "command.h"
-#include <typeinfo>
 
 using namespace std;
 
@@ -23,13 +22,14 @@ class Menu {
 				cout << "0";
 			}
 			else {
-				cout << history.at(history_index)->get_root();
+				cout << history.at(history_index - 1)->execute();
+				cout << endl;
 			}
 		};
 		bool initialized() {
 			//Return true if the history has been primed with a single op instruciton
 			//This is necessary because that is the base of a calculation
-			if(typeid(history.at(0)->execute()) == typeid(double))
+			if(!history.empty())
 			{
 				return true;
 			}
@@ -37,16 +37,13 @@ class Menu {
 		};
 		void add_command(Command* cmd) {
 			//Adds a command to history in the appropriate posiiton (based on history_index)
-			cout << "Error 1" << endl << flush;
 			if(history.empty() || history_index >= int (history.size()))
 			{
 				history_index++;
-				cout << "Error 2" << endl << flush;
 				history.push_back(cmd);
 			}
 			else
 			{
-				cout << "Error 3" << endl << flush;
 				history.at(history_index) = cmd;
 				history_index++;
 			}
