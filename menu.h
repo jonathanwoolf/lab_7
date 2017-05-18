@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "command.h"
+#include <typeinfo>
 
 using namespace std;
 
@@ -28,6 +29,11 @@ class Menu {
 		bool initialized() {
 			//Return true if the history has been primed with a single op instruciton
 			//This is necessary because that is the base of a calculation
+			if(typeid(history.at(0)->execute()) == typeid(double))
+			{
+				return true;
+			}
+			return false;
 		};
 		void add_command(Command* cmd) {
 			//Adds a command to history in the appropriate posiiton (based on history_index)
