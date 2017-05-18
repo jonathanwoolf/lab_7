@@ -30,10 +30,17 @@ class OpCommand : public Command {
 
 class AddCommand : public Command {
 	//AddCommand Code Here
+	public:
+		AddCommand(Command* l, Command* r) {
+			root = new Add(l->get_root(), r->get_root());
+		}
 };
 
 class SubCommand : public Command {
 	//SubCommand Code Here
+	SubCommand(Command* l, Command* r) {
+		root = new Sub(l->get_root(), r->get_root());
+	}
 };
 
 class MultCommand : public Command {
