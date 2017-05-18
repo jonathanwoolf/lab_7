@@ -31,24 +31,24 @@ class OpCommand : public Command {
 class AddCommand : public Command {
 	//AddCommand Code Here
 	public:
-		AddCommand(Command* l, Command* r) {
-			root = new Add(l->get_root(), r->get_root());
+		AddCommand(Command* l, double r) {
+			root = new Add(l->get_root(), new Op(r));
 		}
 };
 
 class SubCommand : public Command {
 	//SubCommand Code Here
 	public:
-	SubCommand(Command* l, Command* r) {
-		root = new Sub(l->get_root(), r->get_root());
+	SubCommand(Command* l, double r) {
+		root = new Sub(l->get_root(), new Op(r));
 	}
 };
 
 class MultCommand : public Command {
 	//MultCommand Code Here
 	public:
-	MultCommand(Command* l, Command *r) {
-		root = new Mult(l->get_root(), r->get_root());
+	MultCommand(Command* l, double r) {
+		root = new Mult(l->get_root(), new Op(r));
 	}
 };
 
