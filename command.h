@@ -8,13 +8,13 @@ class Command {
 		Base* root;
 
 	public:
-		Command() { };
+		Command() { }
 		double execute() {
 			return root->evaluate();
-		};
+		}
 		Base* get_root() {
 			return root;
-		};
+		}
 };
 
 class OpCommand : public Command {
