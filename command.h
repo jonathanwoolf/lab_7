@@ -38,6 +38,7 @@ class AddCommand : public Command {
 
 class SubCommand : public Command {
 	//SubCommand Code Here
+	public:
 	SubCommand(Command* l, Command* r) {
 		root = new Sub(l->get_root(), r->get_root());
 	}
@@ -45,6 +46,7 @@ class SubCommand : public Command {
 
 class MultCommand : public Command {
 	//MultCommand Code Here
+	public:
 	MultCommand(Command* l, Command *r) {
 		root = new Mult(l->get_root(), r->get_root());
 	}
@@ -52,6 +54,7 @@ class MultCommand : public Command {
 
 class SqrCommand : public Command {
 	//SqrCommand Code Here
+	public:
 	SqrCommand(Command* onlyChild) {
 		root = new Sqr(onlyChild->get_root());
 	}
