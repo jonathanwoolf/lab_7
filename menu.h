@@ -40,10 +40,17 @@ class Menu {
 		};
 		void undo() {
 			//Moves to the last command in history (if possible)
-
+			if(history_index > -1)
+			{
+				history_index--;
+			}
 		};
 		void redo() {
 			//Moves to the next command in history (if possible)
+			if(history_index < history.size() - 1)
+			{
+				history_index++;
+			}
 		};
 };
 
