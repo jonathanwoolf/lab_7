@@ -45,10 +45,16 @@ class SubCommand : public Command {
 
 class MultCommand : public Command {
 	//MultCommand Code Here
+	MultCommand(Command* l, Command *r) {
+		root = new Mult(l->get_root(), r->get_root());
+	}
 };
 
 class SqrCommand : public Command {
 	//SqrCommand Code Here
+	SqrCommand(Command* onlyChild) {
+		root = new Sqr(onlyChild->get_root());
+	}
 };
 
 #endif //__COMMAND_CLASS__
